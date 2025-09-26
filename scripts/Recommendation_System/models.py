@@ -51,12 +51,7 @@ class BasicCollaborativeFiltering(nn.Module):
 
 
 class AdditiveHybridMFWithText(nn.Module):
-    """
-    Additive hybrid matrix-factorization with text embeddings:
-      item_vector = item_emb + cat_emb + price_proj + avg_rating_proj + rating_count_proj + text_proj
-      score = <user_emb, item_vector> + user_bias + item_bias
-    Text embeddings are projected from SBERT dimension to text_proj_dim, then to model embedding dimension.
-    """
+
 
     def __init__(self,
                  n_users,
@@ -152,16 +147,7 @@ class AdditiveHybridMFWithText(nn.Module):
 
     def forward_item_vector(self, item_idx, main_cat_idx, price_val=None,
                             avg_rating_val=None, rating_count_val=None, text_emb=None):
-        """
-        Build additive item vector for a batch.
-        Inputs:
-          - item_idx: LongTensor (batch,)
-          - main_cat_idx: LongTensor (batch,)
-          - price_val, avg_rating_val, rating_count_val: FloatTensors (batch,) or (batch,1)
-          - text_emb: FloatTensor (batch, text_emb_dim)
-        Returns:
-          - item_vec: FloatTensor (batch, emb_dim)
-        """
+
         v_item = self.item_emb(item_idx)           # (B, D)
         v_cat  = self.cat_emb(main_cat_idx)        # (B, D)
         parts = [v_item, v_cat]
@@ -215,14 +201,7 @@ class AdditiveHybridMFWithText(nn.Module):
 
 
 class MLPModel(nn.Module):
-    """
-    Two-stage MLP Model for efficient full-catalog ranking:
-    - Item tower: MLP_item(concat(item_emb, text_proj, metadata_proj)) -> v_item (D')
-    - User tower: MLP_user(user_emb) -> v_user (D') 
-    - Score: v_user · v_item + biases
-    
-    This allows offline precomputation of item vectors for efficient ranking.
-    """
+
     
     def __init__(self, 
                  n_users, 
@@ -407,20 +386,7 @@ class MLPModel(nn.Module):
 
 # Model factory function for easy model creation
 def create_model(model_type, n_users, n_items, n_main_cats, text_emb_dim, **kwargs):
-    """
-    Factory function to create models by type
-    
-    Args:
-        model_type: str - "CF", "Text", "MLP", or "Baseline"
-        n_users: int - Number of users
-        n_items: int - Number of items
-        n_main_cats: int - Number of main categories
-        text_emb_dim: int - Text embedding dimension
-        **kwargs: Additional model parameters
-        
-    Returns:
-        torch.nn.Module - The requested model
-    """
+
     if model_type == "CF":
         return BasicCollaborativeFiltering(
             n_users=n_users,

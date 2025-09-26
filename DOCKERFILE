@@ -1,0 +1,18 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements_api.txt .
+RUN pip install --upgrade pip
+RUN pip install -r requirements_api.txt
+
+# Copy only the files needed for the API
+COPY scripts/Recommendation_System/recommender_api.py scripts/Recommendation_System/
+COPY scripts/Recommendation_System/inference.py scripts/Recommendation_System/
+COPY scripts/Recommendation_System/models.py scripts/Recommendation_System/
+COPY scripts/Recommendation_System/saved_files/ scripts/Recommendation_System/saved_files/
+COPY data/embeddings/ data/embeddings/
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "scripts.Recommendation_System.recommender_api:app", "--host", "0.0.0.0", "--port", "8000"]
