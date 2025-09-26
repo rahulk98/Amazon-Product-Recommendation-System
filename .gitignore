@@ -186,7 +186,7 @@ cython_debug/
 #  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #  and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
 
 # Ruff stuff:
 .ruff_cache/
@@ -208,3 +208,29 @@ __marimo__/
 
 data
 product_details.md
+scripts/extract_5core_subset.py
+notebooks/1_data_exploration.ipynb
+
+.venv2
+.venv3
+.idea
+notebooks/04_Hybrid_Filtering_Metadata_with_text copy.ipynb
+notebooks/05_Model_Comparison_with_Hyperparameter_Tuning.ipynb
+scripts/model_comparison
+notebooks\advanced_search_results_5configs_20250912_100106.csv
+notebooks\hyperparameter_search_results_staage4.csv
+notebooks\hyperparameter_search_results_stage1.csv
+notebooks\hyperparameter_search_results_stage2.csv
+notebooks\hyperparameter_search_results_stage3.csv
+notebooks/advanced_search_results_5configs_20250912_100106.csv
+notebooks/comprehensive_model_results_multiseed.pkl
+notebooks/hyperparameter_search_results_staage4.csv
+notebooks/hyperparameter_search_results_stage1.csv
+notebooks/hyperparameter_search_results_stage2.csv
+notebooks/hyperparameter_search_results_stage3.csv
+Screenshot 2025-09-10 203719.png
+Screenshot 2025-09-10 225651.png
+notebooks/project_execution.md
+scripts/item_similarity_eval.py
+scripts/Models/SVDModel.py
+scripts/Recommendation_System/update_checkpoint.py
