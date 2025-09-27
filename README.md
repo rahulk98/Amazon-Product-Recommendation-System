@@ -5,6 +5,7 @@ data preparation → model development → evaluation → scalable deployment as
 
 [Live Demo (Azure Container App)](https://recommender-api-app.calmsea-6aa29b51.germanywestcentral.azurecontainerapps.io/recommendation/demo)
 (Note: The app scales to zero when idle; the first request may take up to half a minute to start, but subsequent queries respond instantly.)
+
 ---
 
 ## Project Highlights
