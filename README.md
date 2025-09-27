@@ -7,6 +7,14 @@ data preparation → model development → evaluation → scalable deployment as
 
 ---
 
+## Project Highlights
+- Built a scalable recommendation system on Amazon Reviews dataset (41K users, 137K items, 391K interactions).  
+- Improved ranking performance with metadata + SBERT text embeddings.  
+- Designed a two-stage retrieval pipeline (FAISS + MLP rerank) for sub-100ms inference.  
+- Deployed as a REST API on Azure Container Apps with Docker and CI/CD workflows.  
+
+---
+
 ## Key Features
 - **Data Engineering**
   - Started from a strict 5-core subset (users and items with ≥5 interactions).  
@@ -92,13 +100,6 @@ docker run -p 8000:8000 rahulk98/amazon-electronics-recommender-api:latest
 
 Improved NDCG@10 from 0.305 (CF baseline) to 0.334 (Two-Tower MLP + text), confirming the value of combining collaborative, metadata, and text signals.
 
----
-
-## Project Highlights
-- Built a scalable recommendation system on Amazon Reviews dataset (41K users, 137K items, 391K interactions).  
-- Improved ranking performance with metadata + SBERT text embeddings.  
-- Designed a two-stage retrieval pipeline (FAISS + MLP rerank) for sub-100ms inference.  
-- Deployed as a REST API on Azure Container Apps with Docker and CI/CD workflows.  
 
 ---
 
