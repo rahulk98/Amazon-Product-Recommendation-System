@@ -80,7 +80,7 @@ Run locally with:
 docker pull rahulk98/amazon-electronics-recommender-api:latest
 docker run -p 8000:8000 rahulk98/amazon-electronics-recommender-api:latest
 ```
-
+---
 ## Evaluation Results (Multi-Seed)
 
 | Model              | NDCG@10 (mean) | Notes                        |
@@ -90,8 +90,8 @@ docker run -p 8000:8000 rahulk98/amazon-electronics-recommender-api:latest
 | Hybrid + Text      | 0.3311        | SBERT title embeddings added |
 | Two-Tower MLP      | 0.3342        | Best overall, scalable       |
 
-
 Improved NDCG@10 from 0.305 (CF baseline) to 0.334 (Two-Tower MLP + text), confirming the value of combining collaborative, metadata, and text signals.
+
 ---
 
 ## Project Highlights
