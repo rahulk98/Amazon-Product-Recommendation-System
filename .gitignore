@@ -238,7 +238,10 @@ DEPLOYMENT_OPTIMIZATION.md
 /data/*
 !/data/embeddings/
 /data/embeddings/*
-!/data/embeddings/title_embeddings.npy
+# Exclude large model files and embeddings
+scripts/Recommendation_System/saved_files/
+*.pth
+*.npy
 saved_files/
 saved_models/
 
